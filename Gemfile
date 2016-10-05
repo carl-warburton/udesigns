@@ -15,7 +15,16 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# Implemented devise for user authentication
 gem 'devise'
+# Implemented materialize-sass for css styling
+gem 'materialize-sass'
+# Implemented Social Buttons to build businesses social media presence
+gem "social-buttons", '~> 0.3'
+# Implemented font-awesome-rails for social media link icons
+gem "font-awesome-rails"
+
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

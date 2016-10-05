@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  resources :user_profiles
 
   root "home#index"
 
