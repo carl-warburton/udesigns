@@ -6,20 +6,17 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles.json
   def index
     @user_profiles = UserProfile.all
-    respond_with(@profiles)
   end
 
   # GET /user_profiles/1
   # GET /user_profiles/1.json
   def show
-    @user_profile = Profile.find(params[:id])
-    respond_with(@profile)
+    @user_profile = UserProfile.find(params[:id])
   end
 
   # GET /user_profiles/new
   def new
     @user_profile = UserProfile.new
-    respond_with(@profile)
   end
 
   # GET /user_profiles/1/edit
@@ -29,9 +26,8 @@ class UserProfilesController < ApplicationController
   # POST /user_profiles
   # POST /user_profiles.json
   def create
-    @user_profile.user_id = current_user.id if current_user
-
     @user_profile = UserProfile.new(user_profile_params)
+    @user_profile.user_id = current_user.id if current_user
 
     respond_to do |format|
       if @user_profile.save

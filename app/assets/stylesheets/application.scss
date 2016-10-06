@@ -14,6 +14,45 @@
  *= require_self
  */
 @import "materialize/components/color";
-$primary-color: color("grey", "darken-3") !default;
+$primary-color: color("grey", "darken-1") !default;
 @import 'materialize';
 @import "font-awesome";
+
+nav {
+    height: 30px;
+    line-height: 30px;
+    font-size: 3px;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    height: 30px;
+    line-height: 30px;
+}
+
+nav .button-collapse i {
+    height: 30px;
+    line-height: 30px;
+}
+
+nav .brand-logo {
+    font-size: 1.6rem;
+}
+
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 30px;
+        line-height: 30px;
+    }
+}
+
+.row{
+  margin-bottom: 0;
+}
+
+.textlogo {
+  margin-top: 10px;
+}
+
+.socialnav{
+
+}
