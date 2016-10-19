@@ -39,9 +39,18 @@
     <%= f.url_field :portfolio %>
   </div>
 
+  <div class="field">
+    <%= f.label :upload_square_transparent_design %>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+
+<br>
   <div class="actions">
     <%= f.submit %>
   </div>
+
+
+
 <% end %>
 
 </end>

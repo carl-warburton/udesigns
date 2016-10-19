@@ -18,6 +18,30 @@ $primary-color: color("grey", "darken-1") !default;
 @import 'materialize';
 @import "font-awesome";
 
+
+.cover-image {
+  background-size: cover;
+  height:410px;
+  width:100%;
+}
+
+.indexcover {
+  width:100%;
+}
+
+.card-image {
+
+
+  }
+.image-style{
+  background-image: url('https://ae01.alicdn.com/kf/HTB1GzAPJFXXXXcfXpXXq6xXFXXXv/High-Quality-Stretch-Short-sleeved-White-font-b-T-b-font-font-b-shirt-b-font.jpg');
+  background-repeat: no-repeat;
+  background-position:center;
+  height:700px;
+}
+
+
+
 nav {
     height: 30px;
     line-height: 30px;
@@ -55,4 +79,9 @@ nav .brand-logo {
 
 .socialnav{
 
+}
+
+#boxy{
+  background: url( asset-path('blankt.png') ) no-repeat;
+  background-size: 100% 100%;
 }

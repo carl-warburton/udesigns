@@ -1,35 +1,53 @@
 <p id="notice"><%= notice %></p>
 
-<h1>User Profiles</h1>
+<div class="row">
+  <div class="cover-image">
+      <img class="indexcover" src="<%= asset_path 'Optimizedwaverocks.png' %>" alt="Unlabelled Designs Wave">
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Hometown</th>
-      <th>Instagram</th>
-      <th>Portfolio</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @user_profiles.each do |user_profile| %>
-      <tr>
-        <td><%= user_profile.name %></td>
-        <td><%= user_profile.age %></td>
-        <td><%= user_profile.hometown %></td>
-        <td><%= user_profile.instagram %></td>
-        <td><%= user_profile.portfolio %></td>
-        <td><%= link_to 'Show', user_profile %></td>
-        <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
-        <td><%= link_to 'Destroy', user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New User Profile', new_user_profile_path %>
+
+<p><%= link_to 'Sell Your Designs', new_user_profile_path %></p>
+
+<% @user_profiles.each do |user_profile| %>
+<div class= "row">
+
+    <div class="card col l8 m8 s12 offset-s6 offset-m2 offset-l2">
+        <p><%=user_profile.name%></p>
+        <p><%=user_profile.hometown%></p>
+        <p><%= user_profile.age %></p>
+
+
+      <div class="card-image">
+        <div class ="image-style">
+          <% user_profile.images.each do |image| %>
+          <br>
+          <br>
+          <br>
+          <br>
+          <%= image_tag  image.url, :size => "50x350" %>
+        </div>
+      </div>
+        <div class="card-content">
+          <p><em>Instagram:</em><br><%= user_profile.instagram %></p>
+          <p><em>Portfolio:</em><br><%= user_profile.portfolio %></p>
+
+          <div class="card-action">
+            <p>
+                <%= link_to 'View', user_profile_path(user_profile)%>
+                <%= link_to "Edit", edit_user_profile_path(user_profile) %>
+
+                <%= link_to "Delete", user_profile_path(user_profile), method: :delete %>
+
+            <% end %>
+
+        </div>
+      </div>
+      </div>
+    </div>
+
+    </div>
+<% end %>

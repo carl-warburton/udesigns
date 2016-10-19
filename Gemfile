@@ -19,10 +19,23 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 # Implemented materialize-sass for css styling
 gem 'materialize-sass'
-# Implemented Social Buttons to build businesses social media presence
-gem "social-buttons", '~> 0.3'
 # Implemented font-awesome-rails for social media link icons
 gem "font-awesome-rails"
+
+# Implemented carrierwave for multiple image uploads
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+
+
+# Implemented Stripe for secure payment gateway
+gem 'stripe'
+
+# Implemented cancancan restrict Updtate and Delete actions to users own uploads
+gem 'cancancan', '~> 1.10'
+
+# omniauth-facebook for easy sign-up
+gem 'omniauth-facebook'
+
+
 
 
 # Use jquery as the JavaScript library

@@ -1,17 +1,19 @@
 class UserProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user_profile, only: [:show, :edit, :update, :destroy]
-
+  # load_and_authorize_resource
   # GET /user_profiles
   # GET /user_profiles.json
   def index
     @user_profiles = UserProfile.all
+
   end
 
   # GET /user_profiles/1
   # GET /user_profiles/1.json
   def show
     @user_profile = UserProfile.find(params[:id])
+
   end
 
   # GET /user_profiles/new
@@ -21,6 +23,11 @@ class UserProfilesController < ApplicationController
 
   # GET /user_profiles/1/edit
   def edit
+    # @user_profile=UserProfile.find(params[:id])
+    # if current_user == @user_profile.user
+    #   @user_profile.update
+    # end
+    #   redirect_to root_path
   end
 
   # POST /user_profiles
@@ -28,6 +35,7 @@ class UserProfilesController < ApplicationController
   def create
     @user_profile = UserProfile.new(user_profile_params)
     @user_profile.user_id = current_user.id if current_user
+    current_user.update_attributes(role_id: Role.find(2).id)
 
     respond_to do |format|
       if @user_profile.save
@@ -43,6 +51,7 @@ class UserProfilesController < ApplicationController
   # PATCH/PUT /user_profiles/1
   # PATCH/PUT /user_profiles/1.json
   def update
+
     respond_to do |format|
       if @user_profile.update(user_profile_params)
         format.html { redirect_to @user_profile, notice: 'User profile was successfully updated.' }
@@ -57,11 +66,11 @@ class UserProfilesController < ApplicationController
   # DELETE /user_profiles/1
   # DELETE /user_profiles/1.json
   def destroy
-    @user_profile.destroy
-    respond_to do |format|
-      format.html { redirect_to user_profiles_url, notice: 'User profile was successfully destroyed.' }
-      format.json { head :no_content }
+    @user_profile=UserProfile.find(params[:id])
+    if current_user == @user_profile.user
+      @user_profile.destroy
     end
+    redirect_to root_path
   end
 
   private
@@ -72,6 +81,6 @@ class UserProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_profile_params
-      params.require(:user_profile).permit(:name, :age, :hometown, :instagram, :portfolio)
+      params.require(:user_profile).permit(:name, :age, :hometown, :instagram, :portfolio, {images: []})
     end
 end
